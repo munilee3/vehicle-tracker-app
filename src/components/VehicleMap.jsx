@@ -80,7 +80,7 @@ function VehicleMap() {
           setAngle(bearing);
           return nextIndex;
         });
-      }, 1000);
+      }, 500);
     }
 
     return () => clearInterval(intervalRef.current);
