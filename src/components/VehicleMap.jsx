@@ -4,14 +4,15 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import Controls from "./Controls";
 
-const INITIAL_CENTER = [17.385044, 78.486671];
+const INITIAL_CENTER = [17.480180, 78.428700];
 
 function calculateAngle(p1, p2) {
   if (!p1 || !p2) return 0;
   const dy = p2.lat - p1.lat;
   const dx = p2.lng - p1.lng;
-  const theta = Math.atan2(dy, dx);
+  const theta = Math.atan2(dx, dy);
   const angle = (theta * 180) / Math.PI;
+  console.log(theta)
   return angle + 90;
 }
 
@@ -41,7 +42,7 @@ function VehicleMap() {
   const [routeData, setRouteData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(270);
   const intervalRef = useRef(null);
 
   useEffect(() => {
